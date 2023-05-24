@@ -56,6 +56,11 @@ header {
     float: left;
 }
 
+.busca {
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+}
+
 .menu-departamentos {
     clear: left;
     margin-top: 10px;
@@ -97,6 +102,9 @@ header {
     margin: 10px 0;
     padding: 10px;
     width: 445px;
+    /* Aula 8 - Opacidade, Prefixos e Gradientes */
+    border-radius: 4px;
+    box-shadow: inset 1px 1px 4px #999;
 }
 
 .novidades {
@@ -107,12 +115,11 @@ header {
     float: right;
 }
 
-.painel li {
-    display: inline-block;
-    vertical-align: top;
-    width: 140px;
-    margin: 2px;
-    padding-bottom: 10px;
+.painel li:hover {
+    background-color: rgba(255, 255, 255, 0.8);
+    box-shadow: 0 0 5px #333;
+    transition: 0.7s;
+    transform: scale(1.2) rotate(-5deg);
 }
 
 .painel h2 {
@@ -120,6 +127,9 @@ header {
     font-weight: bold;
     text-transform: uppercase;
     margin-bottom: 10px;
+    /* Aula 8 - Opacidade, Prefixos e Gradientes */
+    text-shadow: 3px 3px 2px rgba(255, 255, 255, 0.8);
+    
 }
 
 .painel a {
@@ -131,10 +141,12 @@ header {
 
 .novidades {
     background-color: #F5DCDC;
+    background: linear-gradient(#F5DCDC, #BEBEF4);
 }
 
 .mais-vendidos {
     background-color: #DCDCF5;
+    background: linear-gradient(#DCDCF5, #F4BEBE);
 }
 
 footer {
@@ -210,4 +222,53 @@ footer .container {
 
 .menu-departamentos li li a:before {
     content: "- "
+}
+
+.painel li:nth-child(n+7) {
+    display: none;
+}
+
+.painel-aberto li:nth-child(n+7) {
+    display: inline-block;
+}
+
+.painel button {
+    float: right;
+    margin-right: 10px;
+    padding: 10px;
+    background-color: #333;
+    border: 0;
+    border-radius: 4px;
+    box-shadow: 1px 1px 3px rgba(30, 30, 30, 0.5);
+    color: white;
+    font-size: 1em;
+    text-decoration: none;
+    text-shadow: 1px 0 1px black;
+    transition: 0.3s;
+    position: relative;
+    margin-bottom: 10px;
+}
+
+.painel button:hover {
+    background-color: #393939;
+    box-shadow: 1px 0 20px rgba(200, 200, 120, 0.9);
+}
+
+.painel button::after {
+    content: '';
+    display: block;
+    height: 0;
+    width: 0;
+    border-top: 10px solid #333;
+    border-left: 10px solid transparent;
+    border-right: 10px solid transparent;
+    position: absolute;
+    top: 100%;
+    left: 100%;
+    margin-left:  -60px;
+    transition: 0.3s;
+}
+
+.painel button:hover::after {
+    border-top-color: #393939;
 }
